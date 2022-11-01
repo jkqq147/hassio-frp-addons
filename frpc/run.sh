@@ -20,10 +20,10 @@ if bashio::var.has_value "$(bashio::config 'token')"; then
 fi
 echo "tls_enable = true" >> $configPath
 echo "pool_count = 3" >> $configPath
-echo "admin_addr = 0.0.0.0" >> $configPath
-echo "admin_port = 8099" >> $configPath
-echo "admin_user = $(bashio::config 'admin_user')" >> $configPath
-echo "admin_pwd = $(bashio::config 'admin_pwd')" >> $configPath
+#echo "admin_addr = 0.0.0.0" >> $configPath
+#echo "admin_port = 8099" >> $configPath
+#echo "admin_user = $(bashio::config 'admin_user')" >> $configPath
+#echo "admin_pwd = $(bashio::config 'admin_pwd')" >> $configPath
 
 for id in $(bashio::config "tunnels|keys"); do
   name=$(bashio::config "tunnels[${id}].name")
