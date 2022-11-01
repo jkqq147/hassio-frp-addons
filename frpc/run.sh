@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bashio
 set -e
 
-bashio::log.info "(0.35.1-rc14) Building frpc.ini..."
+bashio::log.info "(0.45.0) Building frpc.ini..."
 configPath="/frpc.ini"
 if bashio::fs.file_exists $configPath; then
   rm $configPath
@@ -84,6 +84,4 @@ bashio::log.info "Config file ${configPath} generated:"
 cat $configPath
 bashio::log.info "Tunneling.."
 nohup ./frp/frpc -c ${configPath} > nohup.out &
-sleep 3
-curl http://127.0.0.1:8099/api/status -u $(bashio::config 'admin_user'):$(bashio::config 'admin_pwd') | jq
 tail -f nohup.out
