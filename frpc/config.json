@@ -1,6 +1,6 @@
 {
     "name": "FRP Client",
-    "version": "0.35.1",
+    "version": "0.45.0",
     "slug": "frpc",
     "description": "A FRP client for Hass.io (self-hosted ngrok alternative)",
     "arch": [
