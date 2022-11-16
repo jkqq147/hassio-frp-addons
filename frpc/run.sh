@@ -32,11 +32,7 @@ for id in $(bashio::config "tunnels|keys"); do
   echo "type = $type" >> $configPath
   local_ip=$(bashio::config "tunnels[${id}].local_ip")
   if [ $local_ip != "null" ]; then
-    if bashio::var.has_value "$(dig +short ${local_ip})"; then
-      echo "local_ip = $(dig +short ${local_ip})" >> $configPath
-    else
-      echo "local_ip = ${local_ip}" >> $configPath
-    fi
+    echo "local_ip = ${local_ip}" >> $configPath
   fi
   local_port=$(bashio::config "tunnels[${id}].local_port")
   if [ $local_port != "null" ]; then
